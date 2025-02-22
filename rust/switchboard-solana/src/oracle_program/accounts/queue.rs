@@ -111,13 +111,13 @@ impl OracleQueueAccountData {
         account_info: &'info AccountInfo<'info>,
     ) -> anchor_lang::Result<Ref<'info, Self>> {
         let data = account_info.try_borrow_data()?;
-        if data.len() < OracleQueueAccountData::discriminator().len() {
+        if data.len() < OracleQueueAccountData::DISCRIMINATOR.len() {
             return Err(ErrorCode::AccountDiscriminatorNotFound.into());
         }
 
         let mut disc_bytes = [0u8; 8];
         disc_bytes.copy_from_slice(&data[..8]);
-        if disc_bytes != OracleQueueAccountData::discriminator() {
+        if disc_bytes != OracleQueueAccountData::DISCRIMINATOR {
             return Err(ErrorCode::AccountDiscriminatorMismatch.into());
         }
 
@@ -140,13 +140,13 @@ impl OracleQueueAccountData {
     /// let oracle_queue = OracleQueueAccountData::new(oracle_account_info.try_borrow_data()?)?;
     /// ```
     pub fn new_from_bytes(data: &[u8]) -> anchor_lang::Result<&OracleQueueAccountData> {
-        if data.len() < OracleQueueAccountData::discriminator().len() {
+        if data.len() < OracleQueueAccountData::DISCRIMINATOR.len() {
             return Err(ErrorCode::AccountDiscriminatorNotFound.into());
         }
 
         let mut disc_bytes = [0u8; 8];
         disc_bytes.copy_from_slice(&data[..8]);
-        if disc_bytes != OracleQueueAccountData::discriminator() {
+        if disc_bytes != OracleQueueAccountData::DISCRIMINATOR {
             return Err(ErrorCode::AccountDiscriminatorMismatch.into());
         }
 

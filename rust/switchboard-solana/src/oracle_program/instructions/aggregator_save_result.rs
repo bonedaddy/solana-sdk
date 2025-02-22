@@ -32,7 +32,7 @@ pub struct AggregatorSaveResultParams {
     pub state_bump: u8,
 }
 impl Discriminator for AggregatorSaveResult {
-    const DISCRIMINATOR: [u8; 8] = [21, 67, 5, 0, 74, 168, 51, 192];
+    const DISCRIMINATOR: &[u8] = &[21, 67, 5, 0, 74, 168, 51, 192];
 }
 
 cfg_client! {
@@ -47,7 +47,7 @@ impl<'info> AggregatorSaveResult {
         let mut accounts = self.to_account_metas(None);
         let client = client.program(SWITCHBOARD_PROGRAM_ID).unwrap().async_rpc();
 
-        let mut data: Vec<u8> = AggregatorSaveResult::discriminator().try_to_vec()?;
+        let mut data: Vec<u8> = AggregatorSaveResult::DISCRIMINATOR.try_to_vec()?;
         let mut param_vec: Vec<u8> = params.try_to_vec()?;
         data.append(&mut param_vec);
 

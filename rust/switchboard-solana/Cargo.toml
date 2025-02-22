@@ -26,7 +26,7 @@ pid_override = []
 git = "https://github.com/coral-xyz/anchor"
 rev = "b26f7eb4855af19d0792c3c221d0650e75d929bc"
 [dependencies.solana-program]
-version = ">=2.0.0"
+version = "2"
 [dependencies.bytemuck]
 version = "1"
 [dependencies.rust_decimal]
