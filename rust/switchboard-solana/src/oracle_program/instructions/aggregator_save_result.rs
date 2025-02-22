@@ -32,7 +32,7 @@ pub struct AggregatorSaveResultParams {
     pub state_bump: u8,
 }
 impl Discriminator for AggregatorSaveResult {
-    const DISCRIMINATOR: &[u8] = &[21, 67, 5, 0, 74, 168, 51, 192];
+    const DISCRIMINATOR: &'static [u8] = &[21, 67, 5, 0, 74, 168, 51, 192];
 }
 
 cfg_client! {

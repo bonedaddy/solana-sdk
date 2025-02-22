@@ -14,7 +14,7 @@ pub struct OracleHeartbeatParams {
     pub permission_bump: u8,
 }
 impl Discriminator for OracleHeartbeat {
-    const DISCRIMINATOR: &[u8] = &[10, 175, 217, 130, 111, 35, 117, 54];
+    const DISCRIMINATOR: &'static [u8] = &[10, 175, 217, 130, 111, 35, 117, 54];
 }
 
 impl<'info> OracleHeartbeat {
