@@ -22,10 +22,16 @@ no-entrypoint = []
 cpi = ["no-entrypoint"]
 pid_override = []
 
-[dependencies]
-solana-program = "1.17.13,<2"
-anchor-lang = "0.30.1"
-bytemuck = "1.16.1"
-rust_decimal = "1.32.0"
-superslice = "1.0.0"
-lazy_static = "1.5.0"
+[dependencies.anchor-lang]
+git = "https://github.com/coral-xyz/anchor"
+rev = "b26f7eb4855af19d0792c3c221d0650e75d929bc"
+[dependencies.solana-program]
+version = ">=2.0.0"
+[dependencies.bytemuck]
+version = "1"
+[dependencies.rust_decimal]
+version = "1.36"
+[dependencies.superslice]
+version = "1"
+[dependencies.lazy_static]
+version = "1.5.0"
